@@ -6,9 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'mern-state-backend.vercel.app', // your backend server URL
+        target: 'https://mern-state-backend.vercel.app',
         changeOrigin: true,
-        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
